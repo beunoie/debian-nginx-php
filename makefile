@@ -6,7 +6,7 @@ CONTAINER=debian-nginx-php
 
 CONTNAME=$(CONTAINER)-1
 
-DATAVOL=/Users/20000652/Docker/$(CONTAINER)/vol
+DATAVOL=$(pwd)/vol
 
 
 #net=host: mandatory for others containers to connect to mysql
