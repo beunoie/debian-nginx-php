@@ -6,7 +6,7 @@ CONTAINER=debian-nginx-php
 
 CONTNAME=$(CONTAINER)-1
 
-DATAVOLUME=$(shell pwd)/../$(CONTNAME)-vol
+DATAVOL=$(shell pwd)/../$(CONTNAME)-vol
 
 
 #net=host: mandatory for others containers to connect to mysql
@@ -44,6 +44,9 @@ clear:
 
 cleanupdb:
 	make stop;make delete
+
+prepare:
+	mkdir -p $(DATAVOL)/conf $(DATAVOL)/www;cp conf/default $(DATAVOL)/conf;cp conf/index.php $(DATAVOL)/www
 
 restart:
 	 make stop;make delete ;make build ;make run
